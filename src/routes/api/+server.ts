@@ -4,7 +4,8 @@ import { OpenAIStream, StreamingTextResponse } from "ai";
 //import { env } from "$env/dynamic/private";
 // You may want to replace the above with a static private env variable
 // for dead-code elimination and build-time type-checking:
-import { OPENAI_API_KEY } from "$env/static/private";
+//import { OPENAI_API_KEY } from "$env/static/private";
+import { env } from "$env/dynamic/private";
 import type { RequestHandler } from "./chat/$types";
 
 interface Prompt {
@@ -14,7 +15,7 @@ interface Prompt {
 
 // Create an OpenAI API client
 const openai = new OpenAI({
-  apiKey: OPENAI_API_KEY || "",
+  apiKey: env.OPENAI_API_KEY || "",
 });
 
 export const POST = (async ({ request }) => {
