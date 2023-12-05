@@ -7,12 +7,18 @@
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "generate": "drizzle-kit generate:pg",
+    "db-push": "drizzle-kit push:pg",
+    "studio": "drizzle-kit studio"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^2.0.0",
     "@sveltejs/kit": "^1.27.4",
     "autoprefixer": "^10.4.16",
+    "dotenv": "^16.3.1",
+    "drizzle-kit": "^0.20.4",
+    "pg": "^8.11.3",
     "postcss": "^8.4.31",
     "svelte": "^4.2.7",
     "svelte-check": "^3.6.0",
@@ -23,7 +29,9 @@
   },
   "type": "module",
   "dependencies": {
+    "@neondatabase/serverless": "^0.6.0",
     "ai": "^2.2.25",
+    "drizzle-orm": "^0.29.0",
     "openai": "^4.20.0"
   }
 }

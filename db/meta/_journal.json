@@ -1,0 +1,13 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1700775938450,
+      "tag": "0000_hot_kronos",
+      "breakpoints": true
+    }
+  ]
+}
