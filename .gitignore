@@ -3,6 +3,7 @@ dist
 *.env
 .wrangler
 .dev.vars
+.DS_Store
 
 # Change them to your taste:
 package-lock.json
