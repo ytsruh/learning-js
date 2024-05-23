@@ -1,4 +1,8 @@
-.DS_Store
 node_modules
+dist
 *.env
 .wrangler
+.dev.vars
+
+# Change them to your taste:
+package-lock.json
