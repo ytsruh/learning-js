@@ -46,3 +46,7 @@
     --ring: 162 100% 38.2%;
     --radius: 0.5rem;
 }
+
+* {
+    font-family: "Roboto", sans-serif;
+}
