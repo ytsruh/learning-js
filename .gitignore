@@ -1,9 +1,9 @@
-node_modules
-dist
-*.env
-.wrangler
-.dev.vars
 .DS_Store
+/node_modules/
 
-# Change them to your taste:
+# React Router
+/.react-router/
+/build/
+.env
+bun.lock
 package-lock.json
