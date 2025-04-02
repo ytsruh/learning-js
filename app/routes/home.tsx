@@ -73,6 +73,16 @@ type Message = {
 export default function Home({}: Route.ComponentProps) {
   const fetcher = useFetcher();
   const [messages, setMessages] = useState<Message[]>([]);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [password, setPassword] = useState<string>("");
+  const correctPassword = "simple-demo";
+
+  useEffect(() => {
+    const authStatus = sessionStorage.getItem("isAuthenticated");
+    if (authStatus === "true") {
+      setIsAuthenticated(true);
+    }
+  }, []);
 
   useEffect(() => {
     if (fetcher.data?.message && fetcher.state === "idle") {
@@ -87,6 +97,38 @@ export default function Home({}: Route.ComponentProps) {
       setMessages((prev) => [...prev, { content: message, type: "user" }]);
     }
   };
+
+  const handlePasswordSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (password === correctPassword) {
+      setIsAuthenticated(true);
+      sessionStorage.setItem("isAuthenticated", "true");
+    } else {
+      alert("Incorrect password");
+    }
+  };
+
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="p-8 rounded-lg shadow-md w-96">
+          <h2 className="text-2xl font-bold mb-4 text-center">Enter Password</h2>
+          <form onSubmit={handlePasswordSubmit} className="space-y-4" autoComplete="off">
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full p-2 border rounded-md"
+              placeholder="Enter password"
+            />
+            <button type="submit" className="w-full btn">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen max-h-screen flex flex-col justify-between">
