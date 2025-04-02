@@ -1,19 +1,18 @@
 import type { Route } from "./+types/home";
 import { OpenAI } from "openai";
 import fs from "fs";
-import { Form, useFetcher } from "react-router";
-import { useState, useEffect, useRef } from "react";
+import { useFetcher } from "react-router";
+import { useState, useEffect } from "react";
 
 const client = new OpenAI({
   apiKey: process.env.OPEN_AI_KEY,
 });
 
 export function meta({}: Route.MetaArgs) {
-  return [{ title: "New React Router App" }, { name: "description", content: "Welcome to React Router!" }];
-}
-
-export function loader({}: Route.LoaderArgs) {
-  return { message: "Hello World" };
+  return [
+    { title: "Brand Guideline Checker" },
+    { name: "description", content: "An AI Powered Brand Guideline Checker" },
+  ];
 }
 
 export async function action({ request }: Route.ActionArgs) {
