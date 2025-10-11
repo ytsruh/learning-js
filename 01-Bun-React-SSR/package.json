@@ -1,0 +1,19 @@
+{
+	"name": "bun-react-ssr",
+	"scripts": {
+		"dev": "bun run --watch src/index.ts"
+	},
+	"dependencies": {
+		"@elysiajs/static": "^1.4.0",
+		"elysia": "latest",
+		"react": "^19.2.0",
+		"react-dom": "^19.2.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.2.5",
+		"@types/react": "^19.2.2",
+		"@types/react-dom": "^19.2.1",
+		"bun-types": "latest"
+	},
+	"module": "src/index.js"
+}
